@@ -25,6 +25,8 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-user-plus"></i> Add User</h3>
+                            <a class="pull-right" href="{{route('users')}}"><i class="fa fa-users"></i> Users</a>
+
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->

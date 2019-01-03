@@ -25,7 +25,14 @@ Route::post('/login',[
 ]);
 
 Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
-
+    Route::get('/profile',[
+        'uses'=>'AdminController@getProfile',
+        'as'=>'profile'
+    ]);
+    Route::post('/update/password',[
+        'uses'=>'AdminController@postUpdatePassword',
+        'as'=>'update.password'
+    ]);
     Route::get('/dashboard',[
         'uses'=>'AdminController@getDashboard',
         'as'=>'dashboard'
@@ -37,10 +44,37 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
     ]);
 });
 
+Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], function (){
+    Route::get('/room/new',[
+        'uses'=>'KtvRoomController@getNewRoom',
+        'as'=>'ktv.room.new'
+    ]);
+    Route::post('/room/new',[
+        'uses'=>'KtvRoomController@postNewRoom',
+        'as'=>'ktv.room.new'
+    ]);
+    Route::get('/room/all',[
+        'uses'=>'KtvRoomController@getAllRoom',
+        'as'=>'ktv.room.all'
+    ]);
+    Route::post('/room/remove',[
+        'uses'=>'KtvRoomController@postRemoveRoom',
+        'as'=>'ktv.room.remove'
+    ]);
+    Route::get('/room/{id}/edit',[
+        'uses'=>'KtvRoomController@getEditRoom',
+        'as'=>"ktv.room.edit"
+    ]);
+    Route::post('/room/update',[
+        'uses'=>'KtvRoomController@postUpdateRoom',
+        'as'=>'ktv.room.update'
+    ]);
+});
 
-Route::group(['prefix'=>'admin','middleware'=>'role:Admin'], function (){
 
-   Route::get('/users',[
+Route::group(['prefix'=>'admin','middleware'=>'role:Administrator'], function (){
+
+   Route::get('/user/all',[
        'uses'=>'AdminController@getUsers',
        'as'=>'users'
    ]);

@@ -52,14 +52,14 @@
             <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
             <li class="treeview">
-                <a href="#"><i class="fa fa-home text-yellow"></i> <span>Rooms Management</span>
+                <a href="#"><i class="fa fa-music text-yellow"></i> <span>Ktv Rooms Management</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="#"><i class="fa fa-plus-circle text-green"></i> <span>Add Room</span></a></li>
-                    <li ><a href="#"><i class="fa fa-audio-description text-red"></i> <span>All Rooms</span></a></li>
+                    <li ><a href="{{route('ktv.room.new')}}"><i class="fa fa-plus-circle text-green"></i> <span>Add Room</span></a></li>
+                    <li ><a href="{{route('ktv.room.all')}}"><i class="fa fa-audio-description text-red"></i> <span>All Rooms</span></a></li>
                 </ul>
             </li>
             <li class="treeview">

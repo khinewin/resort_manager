@@ -312,13 +312,7 @@
     $(function () {
         $("#usersTable").dataTable();
 
-
-        $('.sidebar-menu li').on('click', function () {
-            $(".sidebar-menu li").removeClass("active")
-            var p=$(this);
-            p.addClass("active")
-
-        })
+        $("#ktvRoomTable").dataTable();
     })
 </script>
 </body>

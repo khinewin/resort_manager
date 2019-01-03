@@ -9,14 +9,19 @@
 @section('active') Users @stop
 
     @section('content')
-        <section class="content">
+
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                            @if(Session('info'))
-                            <div class="alert alert-success">{{Session('info')}}</div>
-                            @endif
+                <div class="col-md-12">
+                    @if(Session('info'))
+                        <div class="alert alert-success">
+                            {{Session('info')}}
+                        </div>
+                    @endif
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><i class="fa fa-users"></i> Users</h3>
+                            <a class="pull-right" href="{{route('user.new')}}"><i class="fa fa-user-plus"></i> Add User</a>
+
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive">
@@ -36,11 +41,12 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->phone}}</td>
+                                        <td><a href="tel:{{$user->phone}}">{{$user->phone}}</a></td>
                                         <td>{{$user->roles()->pluck('name')->implode(' ')}}</td>
                                         <td>{{$user->created_at->diffForHumans()}}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{route('user.edit',['id'=>$user->id])}}"><i class="fa fa-edit"></i></a>
+
                                             <a href="#" data-toggle="modal" data-target="#{{$user->id}}" class="text-danger"><i class="fa fa-trash"></i></a>
                                             <div class="modal fade" id="{{$user->id}}">
                                                 <div class="modal-dialog">
@@ -87,7 +93,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-        </section>
+
 
 
         @stop

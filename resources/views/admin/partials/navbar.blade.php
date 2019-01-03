@@ -151,7 +151,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{route('profile')}}" class="btn btn-default btn-flat"><i class="fa fa-user-circle"></i> Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{route('logout')}}" class="btn btn-danger btn-flat"><i class="fa fa-power-off text-white"></i></a>

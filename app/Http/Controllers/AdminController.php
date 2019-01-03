@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use App\User;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -59,7 +61,7 @@ class AdminController extends Controller
 
         $user->syncRoles($request['role']);
 
-        return redirect()->route('users')->with('info', "The user account have been updated.");
+        return redirect()->back()->with('info', "The selected user account have been updated.");
 
     }
     public function postRemoveUser(Request $request){
@@ -67,6 +69,26 @@ class AdminController extends Controller
         $user=User::where('id', $id)->first();
         $user->delete();
         return redirect()->back()->with('info', 'The user account have been removed.');
+
+    }
+    public function getProfile(){
+        return view ('admin.profile');
+    }
+    public function postUpdatePassword(Request $request){
+      $this->validate($request,[
+           'current_password'=>'required',
+           'new_password'=>'required',
+           'new_password_confirm'=>'required|same:new_password'
+        ]);
+        if(!Hash::check($request['current_password'], Auth::User()->password)){
+            return redirect()->back()->with('current_pass_err', "The current password is invalid.");
+        }else{
+            $user=Auth::User();
+            $user->password=bcrypt($request['new_password']);
+            $user->update();
+            return redirect()->back()->with('info', 'Your password have been updated.');
+        }
+
 
     }
 }
