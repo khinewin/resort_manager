@@ -69,6 +69,20 @@ Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], func
         'uses'=>'KtvRoomController@postUpdateRoom',
         'as'=>'ktv.room.update'
     ]);
+
+
+    Route::get('/room/{id}/check/in',[
+        'uses'=>'KtvCheckController@getCheckIn',
+        'as'=>'ktv.check.in'
+    ]);
+    Route::get('/room/{id}/check/out',[
+        'uses'=>'KtvCheckController@getCheckOut',
+        'as'=>'ktv.check.out'
+    ]);
+    Route::get('/print/{id}',[
+        'uses'=>'KtvCheckController@getPrint',
+
+    ]);
 });
 
 

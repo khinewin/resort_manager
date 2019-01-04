@@ -18,5 +18,26 @@
 <!-- jquery and bootstrap js -->
 <script src="{{URL::to('bst/js/jQuery.js')}}"></script>
 <script src="{{URL::to('bst/js/bootstrap.js')}}"></script>
+<script src="{{URL::to('bst/js/jQuery.print.js')}}"></script>
+<script>
+    $(function () {
+        $("#btnPrint").on('click', function () {
+            $("#forPrint").print({
+                globalStyles: true,
+                mediaPrint: false,
+                stylesheet: null,
+                noPrintSelector: ".no-print",
+                iframe: true,
+                append: null,
+                prepend: null,
+                manuallyCopyFormValues: true,
+                deferred: $.Deferred(),
+                timeout: 750,
+                title: null,
+                doctype: '<!doctype html>'
+            });
+        });
+    })
+</script>
 </body>
 </html>

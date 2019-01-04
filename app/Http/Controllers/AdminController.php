@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\KtvRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -11,7 +13,8 @@ use Auth;
 class AdminController extends Controller
 {
     public function getDashboard(){
-        return view ('admin.dashboard');
+        $ktv_rooms=KtvRoom::OrderBy('id', 'desc')->get();
+        return view ('admin.dashboard')->with(['ktv_rooms'=>$ktv_rooms]);
     }
     public function getUsers(){
         $users=User::OrderBy('id', 'desc')->get();
