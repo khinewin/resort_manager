@@ -69,7 +69,7 @@
                     <table class="table table-hover">
                         <tr class="btn-default text-bold">
 
-                            <td>Room Number</td>
+                            <td>Room Number / Type</td>
                             <td>Check In</td>
                             <td>Check Out</td>
                             <td>Period</td>
@@ -80,7 +80,7 @@
                         @foreach($rps as $rp)
                             <tr>
 
-                                <td>{{$rp->ktvroom->room_number}}</td>
+                                <td>{{$rp->ktvroom->room_number}} / {{$rp->ktvroom->room_type}}</td>
                                 <td>{{date('D(d)-m-Y, h:i A', strtotime($rp->check_in))}}</td>
                                 <td>
                                     @if($rp->check_out==null)
@@ -114,7 +114,7 @@
 
                                 </td>
                                 <td>
-                                    @if($rp->status)
+                                    @if(!$rp->status)
                                         <span class="text-danger">Check In</span>
                                         @else
                                         <span class="text-success">Finish</span>
