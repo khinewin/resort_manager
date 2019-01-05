@@ -114,7 +114,7 @@
 
                                 </td>
                                 <td>
-                                    @if($rp->ktvroom->status)
+                                    @if($rp->status)
                                         <span class="text-danger">Check In</span>
                                         @else
                                         <span class="text-success">Finish</span>
