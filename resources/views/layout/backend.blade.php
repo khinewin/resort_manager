@@ -317,7 +317,7 @@
         $("#reloadMe").on('click', function () {
             setTimeout(function () {
                 window.location.replace("/admin/dashboard");
-            },1000);
+            },200);
         });
 
         $("#d").on('change', function () {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\KtvRoom;
+use App\Ktvroom;
 use Illuminate\Http\Request;
 
 
@@ -13,11 +13,11 @@ class KtvRoomController extends Controller
     }
     public function postNewRoom(Request $request){
         $this->validate($request,[
-            'room_number'=>'required|unique:ktv_rooms',
+            'room_number'=>'required|unique:ktvrooms',
             'room_type'=>'required',
             'hour_price'=>'required'
         ]);
-        $r=new KtvRoom();
+        $r=new Ktvroom();
         $r->room_number=$request['room_number'];
         $r->room_type=$request['room_type'];
         $r->hour_price=$request['hour_price'];
@@ -26,17 +26,17 @@ class KtvRoomController extends Controller
 
     }
     public function getAllRoom(){
-        $rooms=KtvRoom::OrderBy('id', 'desc')->get();
+        $rooms=Ktvroom::OrderBy('id', 'desc')->get();
         return view('ktv-room.all-room')->with(['rooms'=>$rooms]);
     }
     public function postRemoveRoom(Request $request){
         $id=$request['id'];
-        $room=KtvRoom::where('id', $id)->first();
+        $room=Ktvroom::where('id', $id)->first();
         $room->delete();
         return redirect()->back()->with('info', 'The selected ktv room have been removed.');
     }
     public function getEditRoom($id){
-        $room=KtvRoom::where('id', $id)->first();
+        $room=Ktvroom::where('id', $id)->first();
         return view ('ktv-room.edit-room')->with(['room'=>$room]);
     }
     public function postUpdateRoom(Request $request){
@@ -45,7 +45,7 @@ class KtvRoomController extends Controller
             'room_type'=>'required',
             'hour_price'=>'required'
         ]);
-        $r=KtvRoom::where('id', $request['id'])->first();
+        $r=Ktvroom::where('id', $request['id'])->first();
         $r->room_number=$request['room_number'];
         $r->room_type=$request['room_type'];
         $r->hour_price=$request['hour_price'];
