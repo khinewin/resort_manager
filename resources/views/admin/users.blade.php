@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager | Users @stop
+@section('title') KTV Manager >> Users @stop
 
 
 @section('header')<i class="fa fa-users"></i> Users @stop

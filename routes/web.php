@@ -25,6 +25,21 @@ Route::post('/login',[
 ]);
 
 Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
+
+    Route::get('/ktv/room/{id}/check/in',[
+        'uses'=>'KtvCheckController@getCheckIn',
+        'as'=>'ktv.check.in'
+    ]);
+    Route::get('/ktv/room/{id}/check/out',[
+        'uses'=>'KtvCheckController@getCheckOut',
+        'as'=>'ktv.check.out'
+    ]);
+    Route::get('/ktv/print/{id}',[
+        'uses'=>'KtvCheckController@getPrint',
+        'as'=>'print'
+
+    ]);
+
     Route::get('/profile',[
         'uses'=>'AdminController@getProfile',
         'as'=>'profile'
@@ -43,6 +58,8 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
         'as'=>'logout'
     ]);
 });
+
+
 
 Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], function (){
     Route::get('/room/new',[
@@ -70,19 +87,6 @@ Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], func
         'as'=>'ktv.room.update'
     ]);
 
-
-    Route::get('/room/{id}/check/in',[
-        'uses'=>'KtvCheckController@getCheckIn',
-        'as'=>'ktv.check.in'
-    ]);
-    Route::get('/room/{id}/check/out',[
-        'uses'=>'KtvCheckController@getCheckOut',
-        'as'=>'ktv.check.out'
-    ]);
-    Route::get('/print/{id}',[
-        'uses'=>'KtvCheckController@getPrint',
-
-    ]);
     Route::get('/reports',[
         'uses'=>'ReportController@getReports',
         'as'=>'reports'

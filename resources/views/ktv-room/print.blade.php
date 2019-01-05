@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title') KTV @stop
+@section('title') Print @stop
 
 @section('content')
 
@@ -12,14 +12,14 @@
                 <p>Date : {{date('D(d)-m-Y', strtotime($cks->updated_at))}}</p>
                 <table class="table">
                     <tr>
-                        <td>Room Number</td>
+                        <td>Room Number / Type</td>
                         <td>Check In</td>
                         <td>Check Out</td>
                         <td>Period</td>
                         <td>Amount</td>
                     </tr>
                     <tr>
-                        <td>{{$cks->ktvroom->room_number}}</td>
+                        <td>{{$cks->ktvroom->room_number}} / {{$cks->ktvroom->room_type}}</td>
                         <td>{{date('h:i A', strtotime($cks->check_in))}}</td>
                         <td>{{date('h:i A', strtotime($cks->check_out))}}</td>
                         <td>

@@ -50,7 +50,7 @@ class KtvCheckController extends Controller
         $room->check_in_id=null;
         $room->update();
 
-        return redirect("/ktv/print/$checking->id");
+        return redirect("/admin/ktv/print/$checking->id");
 
     }
     public function getPrint($id){

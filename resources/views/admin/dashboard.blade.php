@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager | Dashboard @stop
+@section('title') KTV Manager >> Dashboard @stop
 
     @section('header')<i class="fa fa-dashboard"></i> Dashboard @stop
     @section('small') Control Panel @stop

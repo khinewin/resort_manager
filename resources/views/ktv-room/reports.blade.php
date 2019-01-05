@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager | Reports @stop
+@section('title') KTV Manager >> Reports @stop
 
 
 @section('header')<i class="fa fa-chart-area"></i> Reports @stop
@@ -124,7 +124,7 @@
                                     @if($rp->check_out==null)
                                         <i class="fa fa-headphones text-danger"></i>
                                     @else
-                                        <a target="_blank" href="print/{{$rp->id}}"><i class="fa fa-print"></i></a>
+                                        <a target="_blank" href="{{route('print',['id', $rp->id])}}"><i class="fa fa-print"></i></a>
                                     @endif
                                 </td>
                             </tr>

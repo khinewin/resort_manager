@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager | Edit KTV Room @stop
+@section('title') KTV Manager >> Edit KTV Room @stop
 
 
 @section('header')<i class="fa fa-edit"></i> Edit KTV Room @stop

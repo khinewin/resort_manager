@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager | User Profile @stop
+@section('title') KTV Manager >> User Profile @stop
 
 
 @section('header')<i class="fa fa-user-circle"></i> User Profile @stop
