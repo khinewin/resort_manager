@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\KtvChecking;
+use App\Ktvreport;
 use App\KtvRoom;
 use Auth;
 use Carbon\Carbon;
@@ -15,11 +15,11 @@ class KtvCheckController extends Controller
         $room=KtvRoom::where('id', $id)->first();
 
         $user_id=Auth::user()->id;
-        $check=new KtvChecking();
+        $check=new Ktvreport();
         $check->user_id=$user_id;
         $check->ktvroom_id=$room->id;
         $check->check_in=$current;
-        $check->check_out=$current;
+        $check->check_out=null;
         $check->room_price=$room->hour_price;
         $check->save();
 
@@ -33,7 +33,7 @@ class KtvCheckController extends Controller
         $room=KtvRoom::where('id', $id)->first();
         $check_in_id=$room->check_in_id;
 
-        $checking=KtvChecking::where('id', $check_in_id)->first();
+        $checking=Ktvreport::where('id', $check_in_id)->first();
         $pre_price=$checking->room_price/60;
 
         $ck_in=strtotime($checking->check_in);
@@ -43,6 +43,7 @@ class KtvCheckController extends Controller
 
         $checking->amount=$minutes*$pre_price;
         $checking->check_out=$current;
+        $checking->status=1;
         $checking->update();
 
         $room->status=null;
@@ -53,7 +54,7 @@ class KtvCheckController extends Controller
 
     }
     public function getPrint($id){
-        $chs=KtvChecking::where('id', $id)->first();
+        $chs=Ktvreport::where('id', $id)->first();
         return view ('ktv-room.print')->with(['cks'=>$chs]);
     }
 }

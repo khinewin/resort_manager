@@ -127,7 +127,6 @@
                         <!-- The user image in the menu -->
                         <li class="user-header">
                             <img src="{{URL::to('user_img/user1.png')}}" class="img-circle" alt="User Image">
-
                             <p>
                                 Role : {{Auth::user()->roles()->pluck('name')->implode(' ')}}
                                 <small>Member Since : {{Auth::user()->created_at->diffForHumans()}}</small>
@@ -161,7 +160,7 @@
                 </li>
                 <!-- Control Sidebar Toggle Button -->
                 <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    <a href="#"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>

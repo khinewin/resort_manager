@@ -49,7 +49,7 @@
 
             </li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard text-purple"></i> <span>Dashboard</span></a></li>
 
             <li class="treeview">
                 <a href="#"><i class="fa fa-music text-yellow"></i> <span>Ktv Rooms Management</span>
@@ -74,18 +74,8 @@
                 </ul>
             </li>
 
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
+            <li><a href="{{route('reports')}}"><i class="fa fa-chart-area text-green"></i> <span>Reports</span></a></li>
+
             <li><a href="{{route('logout')}}"><i class="fa fa-power-off text-red"></i> <span>Sign Out</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->

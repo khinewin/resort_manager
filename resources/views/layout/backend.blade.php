@@ -320,6 +320,13 @@
             },1000);
         });
 
+        $("#d").on('change', function () {
+           $("#filterDate").submit();
+        });
+        $("#m").on('change', function () {
+            $("#filterMonth").submit();
+        });
+
     })
 </script>
 </body>

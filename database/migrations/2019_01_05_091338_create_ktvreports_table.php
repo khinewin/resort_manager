@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKtvCheckingsTable extends Migration
+class CreateKtvreportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateKtvCheckingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ktv_checkings', function (Blueprint $table) {
+        Schema::create('ktvreports', function (Blueprint $table) {
+
             $table->increments('id');
             $table->timestamps();
             $table->dateTime('check_in');
-            $table->dateTime('check_out');
+            $table->dateTime('check_out')->nullable();
             $table->integer('ktvroom_id');
             $table->integer('user_id');
             $table->float('room_price');
             $table->float('amount')->nullable();
+            $table->boolean("status")->nullable();
         });
     }
 
@@ -32,6 +34,6 @@ class CreateKtvCheckingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ktv_checkings');
+        Schema::dropIfExists('ktvreports');
     }
 }

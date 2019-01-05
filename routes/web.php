@@ -83,6 +83,18 @@ Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], func
         'uses'=>'KtvCheckController@getPrint',
 
     ]);
+    Route::get('/reports',[
+        'uses'=>'ReportController@getReports',
+        'as'=>'reports'
+    ]);
+    Route::get('/filter/by/date',[
+        'uses'=>'ReportController@getByDate',
+        'as'=>'filter.date'
+    ]);
+    Route::get('/filter/by/month',[
+        'uses'=>'ReportController@getByMonth',
+        'as'=>'filter.month'
+    ]);
 });
 
 
