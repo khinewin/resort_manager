@@ -128,4 +128,12 @@ Route::group(['prefix'=>'admin','middleware'=>'role:Administrator'], function ()
        'uses'=>'AdminController@postRemoveUser',
        'as'=>'user.remove'
    ]);
+   Route::get('/config',[
+       'uses'=>'AdminController@getConfig',
+       'as'=>'config'
+   ]);
+   Route::post('/config/update',[
+       'uses'=>'AdminController@postUpdateConfig',
+       'as'=>'update.config'
+   ]);
 });

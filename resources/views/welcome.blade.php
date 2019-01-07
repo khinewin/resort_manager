@@ -11,8 +11,11 @@
                         {{Session('err')}}
                     </div>
                 @endif
-                <div class="text-center text-success"><i class="fas fa-headphones-alt fa-5x"></i></div>
-                <h2 class="text-primary text-center">KTV Manager</h2>
+                    <div class="text-center">
+                        <img src='{{URL::to("cfg/$config->logo")}}' class="img-responsive" width="100px">
+                    </div>
+                    <h2 class="text-green text-bold text-center">{{$config->title}}</h2>
+                    <h5 class="text-info text-center">KTV Manager</h5>
                 <p class="text-info text-center">Login</p>
                 <form method="post" action="{{route('login')}}">
                     <div class="form-group">

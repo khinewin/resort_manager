@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Config;
 use App\Ktvreport;
 use App\KtvRoom;
 use Auth;
@@ -54,7 +55,8 @@ class KtvCheckController extends Controller
 
     }
     public function getPrint($id){
+        $config=Config::where('id', 1)->first();
         $chs=Ktvreport::where('id', $id)->first();
-        return view ('ktv-room.print')->with(['cks'=>$chs]);
+        return view ('ktv-room.print')->with(['cks'=>$chs])->with(['config'=>$config]);
     }
 }

@@ -124,7 +124,7 @@
                                     @if($rp->check_out==null)
                                         <i class="fa fa-headphones text-danger"></i>
                                     @else
-                                        <a target="_blank" href="{{route('print',['id', $rp->id])}}"><i class="fa fa-print"></i></a>
+                                        <a target="_blank" href="{{route('print',['id'=>$rp->id])}}"><i class="fa fa-print"></i></a>
                                     @endif
                                 </td>
                             </tr>

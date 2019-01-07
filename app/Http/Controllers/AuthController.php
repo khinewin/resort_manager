@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Config;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -15,7 +16,8 @@ class AuthController extends Controller
         if(Auth::User()){
             return redirect()->route('dashboard');
         }else{
-            return view ('welcome');
+            $config=Config::where('id', 1)->first();
+            return view ('welcome')->with(['config'=>$config]);
         }
 
     }

@@ -6,9 +6,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 shadow mt-2" id="forPrint">
-                <div class="text-center"><i class="fa fa-headphones-alt fa-4x"></i></div>
-                <h2 class="text-center">Family KTV</h2>
-                <p class="text-center">PH : 0938373773, 2223333</p>
+                <div class="text-center">
+                    <img src='{{URL::to("cfg/$config->logo")}}' class="img-responsive" width="100px">
+                </div>
+                <h2 class="text-center">{{$config->title}}</h2>
+                <p class="text-center"> {{$config->address}}</p>
+                <p class="text-center">PH : {{$config->phone}}</p>
                 <p>Date : {{date('D(d)-m-Y', strtotime($cks->updated_at))}}</p>
                 <table class="table">
                     <tr>

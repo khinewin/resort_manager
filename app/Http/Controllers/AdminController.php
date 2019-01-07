@@ -3,15 +3,53 @@
 namespace App\Http\Controllers;
 
 
+use App\Config;
 use App\KtvRoom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use App\User;
 use Auth;
 
 class AdminController extends Controller
 {
+    public function postUpdateConfig(Request $request){
+        $t=$request['title'];
+        $config=Config::where('id', 1)->first();
+
+        if($request->file('logo')){
+            unlink(public_path()."/cfg/$config->logo");
+
+            $logo_name=date("d-m-y-h-i-s").'.'.$request->file('logo')->getClientOriginalExtension();
+            $logo_file=$request->file('logo');
+            $config->logo=$logo_name;
+            $config->title=$t;
+            $config->address=$request['address'];
+            $config->phone=$request['phone'];
+
+            Storage::disk('cfg')->put($logo_name, File::get($logo_file));
+
+
+        }else{
+
+            $config->title=$t;
+            $config->address=$request['address'];
+            $config->phone=$request['phone'];
+
+        }
+
+        $config->update();
+
+        return redirect()->back()->with('info', 'Application config have been updated.');
+
+
+    }
+    public function getConfig(){
+        $config=Config::where('id', 1)->first();
+        return view ('admin.config')->with(['config'=>$config]);
+    }
     public function getDashboard(){
         $ktv_rooms=KtvRoom::OrderBy('id', 'desc')->get();
         return view ('admin.dashboard')->with(['ktv_rooms'=>$ktv_rooms]);
