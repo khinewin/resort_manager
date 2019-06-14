@@ -26,6 +26,11 @@ Route::post('/login',[
 
 Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
 
+    Route::get('/room/control',[
+        'uses'=>'KtvRoomController@getRoomControl',
+        'as'=>'ktv.room.control'
+    ]);
+
     Route::get('/ktv/room/{id}/check/in',[
         'uses'=>'KtvCheckController@getCheckIn',
         'as'=>'ktv.check.in'
@@ -59,9 +64,24 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
     ]);
 });
 
+Route::group(['prefix'=>'foods'], function (){
+    Route::get('/new',[
+        'uses'=>'FoodController@getNewFood',
+        'as'=>'food.new'
+    ]);
+    Route::post('/new',[
+        'uses'=>'FoodController@postNewFood',
+        'as'=>'food.new'
+    ]);
+    Route::get('/items',[
+        'uses'=>'FoodController@getFoodItems',
+        'as'=>'food.items'
+    ]);
+});
 
 
-Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], function (){
+Route::group(['prefix'=>'ktv', 'middleware'=>'role:Admin|Manager'], function (){
+
     Route::get('/room/new',[
         'uses'=>'KtvRoomController@getNewRoom',
         'as'=>'ktv.room.new'
@@ -87,9 +107,9 @@ Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], func
         'as'=>'ktv.room.update'
     ]);
 
-    Route::get('/reports',[
-        'uses'=>'ReportController@getReports',
-        'as'=>'reports'
+    Route::get('/reports/ktv-rooms',[
+        'uses'=>'ReportController@getReportsKtvRooms',
+        'as'=>'reports.ktv-rooms'
     ]);
     Route::get('/filter/by/date',[
         'uses'=>'ReportController@getByDate',
@@ -102,7 +122,7 @@ Route::group(['prefix'=>'ktv', 'middleware'=>'role:Administrator|Manager'], func
 });
 
 
-Route::group(['prefix'=>'admin','middleware'=>'role:Administrator'], function (){
+Route::group(['prefix'=>'admin','middleware'=>'role:Admin'], function (){
 
    Route::get('/user/all',[
        'uses'=>'AdminController@getUsers',

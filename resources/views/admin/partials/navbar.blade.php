@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="{{route('dashboard')}}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b><i class="fas fa-headphones-alt"></i></b></span>
+        <span class="logo-mini navbarHeader"><b>RM</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b><i class="fas fa-headphones-alt"></i> MKV</b>Manager</span>
+        <span class="logo-lg navbarHeader"> Resort Manager</span>
     </a>
 
     <!-- Header Navbar -->
@@ -26,13 +26,38 @@
                     </a>
 
                 </li>
-                <li class="dropdown messages-menu">
-                    <!-- Menu toggle button -->
-                    <a href="{{route('reports')}}">
-                        <i class="fa fa-chart-area"></i> Reports
-                    </a>
 
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-area-chart"></i> Reports
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <!-- Menu toggle button -->
+                                    <a class="text-warning" href="{{route('reports.ktv-rooms')}}">
+                                        <i class="fa fa-bar-chart"></i> Restaurant
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <!-- Menu toggle button -->
+                                    <a class="text-primary" href="{{route('reports.ktv-rooms')}}">
+                                        <i class="fa fa-chart-area"></i> KTV Rooms
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
                 </li>
+
+
                 <!-- /.messages-menu -->
 
 

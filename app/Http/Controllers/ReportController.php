@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function getReports(){
+    public function getReportsKtvRooms(){
         $today=date("Y-m-d");
         $rps=Ktvreport::Where('check_in', 'LIKE', "%$today%")->OrderBy('id', 'desc')->get();
         return view ('ktv-room.reports')->with(['rps'=>$rps])->with(['today'=>$today])

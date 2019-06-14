@@ -1,17 +1,17 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> Add User @stop
+@section('title') Add User @stop
 
 
 @section('header')<i class="fa fa-user-plus"></i> Add User @stop
-@section('small') KTV Manager @stop
-@section('level')<i class="fa fa-user-plus"></i> Admin @stop
+@section('small') Resort Manager @stop
+@section('level')<i class="fa fa-user-plus"></i> Resort Manager @stop
 @section('active') Add User @stop
 
 
     @section('content')
 
-                    <div class="row">
+                    <div class="row bodyPadding">
                         <div class="col-md-12">
                             @if(Session('info'))
                                 <div class="alert alert-success">
@@ -30,6 +30,11 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
+                        <div class="box-body">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+
+
                         <form role="form" method="post" action="{{route('user.new')}}">
                             <div class="box-body">
                                 <div class="form-group @if($errors->has('name')) has-error @endif">
@@ -77,8 +82,11 @@
                             </div>
                             @csrf
                         </form>
-                    </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
+                 </div>
+                </div>
         @stop
 

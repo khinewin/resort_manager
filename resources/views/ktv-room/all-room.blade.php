@@ -1,17 +1,17 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> KTV Rooms @stop
+@section('title') KTV Rooms @stop
 
 
 @section('header')<i class="fa fa-audio-description"></i> KTV Rooms @stop
-@section('small') KTV Manager @stop
-@section('level')<i class="fa fa-audio-description"></i> Admin @stop
+@section('small') Resort Manager @stop
+@section('level')<i class="fa fa-audio-description"></i> Resort Manager @stop
 @section('active') KTV Rooms @stop
 
 
 @section('content')
 
-    <div class="row">
+    <div class="row bodyPadding">
         <div class="col-md-12">
             @if(Session('info'))
                 <div class="alert alert-success">
@@ -45,9 +45,17 @@
                                <td>{{$room->room_type}}</td>
                                <td>{{$room->hour_price}}</td>
                                <td class="text-center">
-                                   <a href="{{route('ktv.room.edit',['id'=>$room->id])}}"><i class="fa fa-edit"></i></a>
 
-                                   <a href="#" data-toggle="modal" data-target="#{{$room->id}}" class="text-danger"><i class="fa fa-trash"></i></a>
+                                   <div class="dropdown">
+                                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> <span class="caret"></span></a>
+                                       <ul class="dropdown-menu">
+                                           <li><a style="color: #0b58a2;" href="{{route('ktv.room.edit',['id'=>$room->id])}}"><i class="fa fa-edit"></i> edit</a></li>
+                                           <li><a style="color: red" href="#" data-toggle="modal" data-target="#{{$room->id}}" class="text-danger"><i class="fa fa-times-circle"></i> delete</a></li>
+                                       </ul>
+                                   </div>
+
+
+
                                    <div class="modal fade" id="{{$room->id}}">
                                        <div class="modal-dialog">
                                            <div class="modal-content">

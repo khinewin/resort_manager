@@ -1,17 +1,17 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> Reports @stop
+@section('title') Reports >> KTV Rooms @stop
 
 
-@section('header')<i class="fa fa-chart-area"></i> Reports @stop
+@section('header')<i class="fa fa-chart-area"></i> Reports >> KTV Rooms @stop
 @section('small') KTV Manager @stop
 @section('level')<i class="fa fa-chart-area"></i> Admin @stop
-@section('active') Reports @stop
+@section('active') Reports >> KTV Rooms @stop
 
 
 @section('content')
 
-    <div class="row">
+    <div class="row bodyPadding">
         <div class="col-md-12">
             @if(Session('info'))
                 <div class="alert alert-success">
@@ -39,7 +39,7 @@
                     </dev>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive">
+                <div class="box-body table-responsive ">
                     <div class="row">
                         <div class="col-md-4">
                             <form id="filterDate" method="get" action="{{route('filter.date')}}">

@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> Config @stop
+@section('title') Config @stop
 
 @section('header')<i class="fa fa-cogs"></i> Config @stop
 @section('small') Control Panel @stop
@@ -31,7 +31,7 @@
                                 <div class="panel-heading">Application Config</div>
                                 <div class="panel-body">
                                     <div class="text-center">
-                                        <img src='{{URL::to("cfg/$config->logo")}}' class="img-circle" width="100px" alt="User Image">
+                                       <!-- <img src='{{URL::to("cfg/$config->logo")}}' class="img-circle" width="100px" alt="User Image"> -->
 
                                     </div>
                                     <ul class="list-group " style="margin-top: 20px">
@@ -48,11 +48,11 @@
                                 <div class="panel-heading">Change Config</div>
                                 <div class="panel-body">
                                     <form method="post" action="{{route('update.config')}}" enctype="multipart/form-data">
-                                        <div class="form-group @if($errors->has('logo')) has-error @endif">
+                                       <!-- <div class="form-group @if($errors->has('logo')) has-error @endif">
                                             <label for="logo">App Logo</label>
                                             <input type="file" style="height: auto" name="logo" class="form-control" id="logo">
                                             @if($errors->has('logo')) <span class="help-block">{{$errors->first('logo')}}</span> @endif
-                                        </div>
+                                        </div> -->
                                         <div class="form-group @if($errors->has('title')) has-error @endif">
                                             <label for="title">App Title</label>
                                             <input value="{{$config->title}}" type="text" name="title" class="form-control" id="title">

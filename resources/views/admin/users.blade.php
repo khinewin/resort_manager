@@ -1,16 +1,16 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> Users @stop
+@section('title') Users @stop
 
 
 @section('header')<i class="fa fa-users"></i> Users @stop
-@section('small') KTV Manager @stop
-@section('level') <a href="#"><i class="fa fa-users"></i> Admin </a> @stop
+@section('small') Resort Manager @stop
+@section('level') <a href="#"><i class="fa fa-users"></i> Resort Manager </a> @stop
 @section('active') Users @stop
 
     @section('content')
 
-            <div class="row">
+            <div class="row bodyPadding">
                 <div class="col-md-12">
                     @if(Session('info'))
                         <div class="alert alert-success">
@@ -24,7 +24,7 @@
 
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body table-responsive">
+                        <div class="box-body table-responsive ">
                             <table id="usersTable" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -45,9 +45,16 @@
                                         <td>{{$user->roles()->pluck('name')->implode(' ')}}</td>
                                         <td>{{$user->created_at->diffForHumans()}}</td>
                                         <td class="text-center">
-                                            <a href="{{route('user.edit',['id'=>$user->id])}}"><i class="fa fa-edit"></i></a>
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a style="color: #0b58a2" href="{{route('user.edit',['id'=>$user->id])}}"><i class="fa fa-edit"></i> edit</a></li>
+                                                    <li><a style="color: red;" href="#" data-toggle="modal" data-target="#{{$user->id}}" class="text-danger"><i class="fa fa-times-circle"></i> delete</a></li>
+                                                </ul>
+                                            </div>
 
-                                            <a href="#" data-toggle="modal" data-target="#{{$user->id}}" class="text-danger"><i class="fa fa-trash"></i></a>
+
+
                                             <div class="modal fade" id="{{$user->id}}">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">

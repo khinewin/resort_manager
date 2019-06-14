@@ -5,11 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
+    <title>Resort Manager @yield('title')</title>
     <!-- Bootstrap 4-->
     <link href="{{URL::to('bst/css/bootstrap.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{URL::to('fa/css/all.css')}}" rel="stylesheet">
+    <link href="{{URL::to('css/style.css')}}" rel="stylesheet">
 </head>
 <body>
 

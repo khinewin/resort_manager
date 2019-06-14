@@ -1,0 +1,29 @@
+@font-face {
+    font-family: distressered;
+    src: url("../fonts/distressered.otf");
+}
+.authForm{
+    margin-top: 50px;
+
+}
+.authHeader{
+    font-family: distressered;
+    font-size: 50px;
+    color: #fff;
+
+}
+.navbarHeader{
+    font-family: distressered;
+    font-size: 30px;
+}
+.container-fluid{
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+.small{
+    font-size: 14px;
+}
+.bodyPadding{
+    padding-bottom: 100%;
+}
+

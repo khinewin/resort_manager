@@ -47,6 +47,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'foods' => [
+            'driver' => 'local',
+            'root' => public_path('foods'),
+        ],
         'cfg' => [
             'driver' => 'local',
             'root' => public_path('cfg'),

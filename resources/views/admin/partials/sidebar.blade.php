@@ -52,7 +52,7 @@
             <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard text-purple"></i> <span>Dashboard</span></a></li>
 
             <li class="treeview">
-                <a href="#"><i class="fa fa-music text-yellow"></i> <span>Ktv Rooms Management</span>
+                <a href="#"><i class="fa fa-music text-yellow"></i> <span>Ktv Rooms Manager</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -60,10 +60,24 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{route('ktv.room.new')}}"><i class="fa fa-plus-circle text-green"></i> <span>Add Room</span></a></li>
                     <li ><a href="{{route('ktv.room.all')}}"><i class="fa fa-audio-description text-red"></i> <span>All Rooms</span></a></li>
+                    <li ><a href="{{route('ktv.room.control')}}"><i class="fa fa-volume-control-phone text-primary"></i> <span>Rooms Control</span></a></li>
                 </ul>
             </li>
+
             <li class="treeview">
-                <a href="#"><i class="fa fa-cogs text-light-blue"></i> <span>Users Management</span>
+                <a href="#"><i class="fa fa-database text-primary"></i> <span>Foods Manager</span>
+                    <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('food.new')}}"><i class="fa fa-plus-circle text-yellow"></i> <span> Add Food Item</span></a></li>
+                    <li><a href="{{route('food.items')}}"><i class="fa fa-list-ol text-green"></i> <span>Food Items</span></a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#"><i class="fa fa-cogs text-light-blue"></i> <span>Users Manager</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -74,7 +88,23 @@
                 </ul>
             </li>
 
-            <li><a href="{{route('reports')}}"><i class="fa fa-chart-area text-green"></i> <span>Reports</span></a></li>
+
+
+
+            <li class="treeview">
+                <a href="#"><i class="fa fa-chart-area text-green"></i> <span>Reports</span>
+                    <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-pie-chart text-yellow"></i> <span>Restaurant</span></a></li>
+                    <li><a href="{{route('reports.ktv-rooms')}}"><i class="fa fa-chart-bar text-green"></i> <span>KTV Rooms</span></a></li>
+                </ul>
+            </li>
+
+
+
 
             <li><a href="{{route('logout')}}"><i class="fa fa-power-off text-red"></i> <span>Sign Out</span></a></li>
         </ul>

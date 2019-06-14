@@ -1,6 +1,6 @@
 @extends('layout.backend')
 
-@section('title') KTV Manager >> User Profile @stop
+@section('title') User Profile @stop
 
 
 @section('header')<i class="fa fa-user-circle"></i> User Profile @stop
@@ -10,7 +10,7 @@
 
 @section('content')
     <section class="content">
-        <div class="row">
+        <div class="row bodyPadding">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">

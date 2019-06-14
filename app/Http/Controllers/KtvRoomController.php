@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class KtvRoomController extends Controller
 {
+    public function getRoomControl(){
+        $ktv_rooms=KtvRoom::OrderBy('id', 'desc')->get();
+        return view ('ktv-room.control')->with(['ktv_rooms'=>$ktv_rooms]);
+    }
     public function getNewRoom(){
         return view ('ktv-room.new-room');
     }

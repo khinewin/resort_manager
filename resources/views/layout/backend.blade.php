@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title')</title>
+    <title>Resort Manager >> @yield('title')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{URL::to('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{URL::to('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
+    <link href="{{URL::to('css/style.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -314,9 +314,9 @@
 
         $("#ktvRoomTable").dataTable();
 
-        $("#reloadMe").on('click', function () {
+        $("#reloadKtvControl").on('click', function () {
             setTimeout(function () {
-                window.location.replace("/admin/dashboard");
+                window.location.replace("/admin/room/control");
             },200);
         });
 
@@ -326,6 +326,10 @@
         $("#m").on('change', function () {
             $("#filterMonth").submit();
         });
+
+        setTimeout(function () {
+            $(".alert").fadeOut("fast");
+        },3000)
 
     })
 </script>

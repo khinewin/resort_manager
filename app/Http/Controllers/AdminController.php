@@ -21,29 +21,23 @@ class AdminController extends Controller
 
         if($request->file('logo')){
             unlink(public_path()."/cfg/$config->logo");
-
             $logo_name=date("d-m-y-h-i-s").'.'.$request->file('logo')->getClientOriginalExtension();
             $logo_file=$request->file('logo');
             $config->logo=$logo_name;
             $config->title=$t;
-            $config->address=$request['address'];
-            $config->phone=$request['phone'];
-
             Storage::disk('cfg')->put($logo_name, File::get($logo_file));
 
-
-        }else{
+        }
 
             $config->title=$t;
             $config->address=$request['address'];
             $config->phone=$request['phone'];
 
-        }
+
 
         $config->update();
 
         return redirect()->back()->with('info', 'Application config have been updated.');
-
 
     }
     public function getConfig(){
