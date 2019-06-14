@@ -32,7 +32,7 @@
                                 <div class="panel-body">
                                     @foreach($ktv_rooms as $k_room)
                                         @if($k_room->room_type=="VIP")
-                                            <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <div class="col-sm-4">
                                                 <div class="thumbnail text-center @if($k_room->status==null) bg-green @else bg-red @endif">
                                                     <i class="fa fa-music fa-2x"></i>
                                                     <span class="text-center text-bold" style="font-size: 20px">{{$k_room->room_number}}</span>
@@ -42,7 +42,15 @@
                                                     @if(!$k_room->status)
                                                         <a href="{{route('ktv.check.in',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block">Check In</a>
                                                     @else
-                                                        <a id="reloadMe" target="_blank" href="{{route('ktv.check.out',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block">Check Out</a>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <a href="{{route('add.vas',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block">VAS</a>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <a id="reloadKtvControl" target="_blank" href="{{route('ktv.check.out',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block"><i class="fa fa-check-circle"></i></a>
+                                                            </div>
+                                                        </div>
+
                                                     @endif
                                                 </div>
                                             </div>
@@ -59,7 +67,7 @@
                                 <div class="panel-body">
                                     @foreach($ktv_rooms as $k_room)
                                         @if($k_room->room_type=="Standard")
-                                            <div class="col-md-4 col-sm-4 col-xs-6">
+                                            <div class="col-sm-4">
                                                 <div class="thumbnail text-center @if($k_room->status==null) bg-green @else bg-red @endif">
                                                     <i class="fa fa-music fa-2x"></i>
                                                     <span class="text-center text-bold" style="font-size: 20px">{{$k_room->room_number}}</span>
@@ -71,7 +79,8 @@
                                                     @else
                                                         <div class="row">
                                                             <div class="col-xs-6">
-                                                                <a href="#" class="btn btn-default btn-sm btn-block">VAS</a>
+                                                                <a href="{{route('add.vas',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block">VAS</a>
+
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 <a id="reloadKtvControl" target="_blank" href="{{route('ktv.check.out',['id'=>$k_room->id])}}" class="btn btn-default btn-sm btn-block"><i class="fa fa-check-circle"></i></a>

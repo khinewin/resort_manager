@@ -44,7 +44,7 @@
                             </thead>
                             @foreach($foods as $f)
                                 <tr>
-                                    <td class="col-xs-1"><img src="@if($f->image) {{URL::to("foods/$f->image")}} @else {{URL::to('images/foods.jpg')}} @endif" class="img-responsive"></td>
+                                    <td class="col-xs-1"><img src="@if($f->image) {{URL::to("foods/$f->image")}} @else {{URL::to('foods/foods.jpg')}} @endif" class="img-responsive"></td>
                                     <td>{{$f->item_name}}</td>
                                     <td>{{$f->price}}</td>
                                     <td>{{$f->user->name}}</td>

@@ -25,6 +25,45 @@ Route::post('/login',[
 ]);
 
 Route::group(['middleware'=>'auth','prefix'=>'admin'], function (){
+    Route::get('/increase/one/{id}',[
+        'uses'=>'KtvCheckController@increaseOne',
+        'as'=>'increase.one'
+    ]);
+    Route::get('/decrease/one/{id}',[
+        'uses'=>'KtvCheckController@decreaseOne',
+        'as'=>'decrease.one'
+    ]);
+    Route::get('/remove/one/{id}',[
+        'uses'=>'KtvCheckController@removeOne',
+        'as'=>'remove.one'
+    ]);
+
+    Route::get('/checkout/vas/{room_id}',[
+        'uses'=>"KtvCheckController@checkoutVas",
+        'as'=>'checkout.vas'
+    ]);
+    Route::get('/increase/cart/{id}',[
+        'uses'=>'KtvCheckController@increaseCart',
+        'as'=>'increase.cart'
+    ]);
+    Route::get('/decrease/cart/{id}',[
+        'uses'=>'KtvCheckController@decreaseCart',
+        'as'=>'decrease.cart'
+    ]);
+    Route::get('/remove/item/{id}',[
+        'uses'=>'KtvCheckController@removeItem',
+        'as'=>'remove.item'
+    ]);
+
+    Route::get('/add/cart/{id}',[
+        'uses'=>'KtvCheckController@addCart',
+        'as'=>'add.cart'
+    ]);
+
+    Route::get('/vas/add/room/{id}',[
+        'uses'=>'KtvCheckController@getAddVas',
+        'as'=>'add.vas'
+    ]);
 
     Route::get('/room/control',[
         'uses'=>'KtvRoomController@getRoomControl',

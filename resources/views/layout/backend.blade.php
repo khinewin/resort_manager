@@ -310,6 +310,7 @@
 <script src="{{URL::to('dist/js/demo.js')}}"></script>
 <script>
     $(function () {
+        $("#vasFoodTable").dataTable();
         $("#usersTable").dataTable();
 
         $("#ktvRoomTable").dataTable();
